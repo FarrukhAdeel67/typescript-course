@@ -16,6 +16,9 @@ const list = new listTemplate(ul);
 
 form.addEventListener('submit',(e:Event)=>{
     e.preventDefault();
+    if(!type.value || !details.value || !tofrom.value || !amount.value){
+        alert("requried fields can not be empty!");
+    }else{
     let values: [string, string ,number];//tuples
     values = [tofrom.value, details.value, amount.valueAsNumber];
     let doc:hasFormatter;
@@ -27,5 +30,5 @@ form.addEventListener('submit',(e:Event)=>{
       //  doc = new Payment(tofrom.value, details.value, amount.valueAsNumber);
     }
     list.render(doc, type.value,'end');
-} )
+}} )
 
